@@ -225,37 +225,50 @@ bun run dev
 
 The application will start using the Vite development server.
 
+
 🌐 Network Configuration
+
 Network: Arc Testnet
+
 Chain ID: 5042002
+
 
 Make sure your wallet is connected to the correct network before interacting with the application.
 
+
 ⚠️ Testnet Notice
+
 
 This project is deployed on Arc Testnet for development, experimentation, and learning.
 
+
 Testnet assets have no monetary value.
+
 
 Never use real funds or expose private keys, seed phrases, API keys, or other credentials.
 
+
 🏗️ Built With Arc Studio
 
+
 Arc Escrow V2 was built and tested using Arc Studio to explore smart contract development, onchain application architecture, and escrow workflows on Arc Testnet.
+
 
 📌 Project Status
 
 Status: Testnet
 
 Arc Escrow V2 is an experimental onchain escrow application built for testing and learning.
-
 The project may evolve as additional escrow features and supported assets are explored.
+
 
 👤 Author
 
 Built by vijay0664kumar
 
+
 GitHub: https://github.com/vijay0664kumar
+
 
 📄 License
 
