@@ -12,9 +12,9 @@ https://soft-jalebi-0de10e.netlify.app/
 
 ## ✨ Overview
 
-Arc Escrow V2 provides a simple onchain escrow workflow for peer-to-peer transactions.
+Arc Escrow V2 provides an onchain escrow workflow for peer-to-peer transactions.
 
-The application allows users to:
+Users can:
 
 - Create escrow agreements
 - Select supported tokens
@@ -27,6 +27,7 @@ The application allows users to:
 - Search and filter escrows
 - View escrow activity history
 - Share escrow links
+- Receive transaction notifications
 
 All escrow state transitions are enforced by the smart contract.
 
@@ -40,7 +41,7 @@ Funds are controlled by the smart contract rather than a centralized platform.
 
 ### 💰 Multi-Token Support
 
-The V2 architecture supports multiple ERC-20 tokens through a configurable supported-token system.
+V2 supports multiple ERC-20 tokens through a configurable supported-token system.
 
 ### 📊 Escrow Dashboard
 
@@ -56,13 +57,13 @@ Track escrow activity through dashboard statistics including:
 
 ### 🔎 Search & Filters
 
-Find escrows using:
+Search escrows by:
 
 - Escrow ID
 - Wallet address
 - Description
 
-Filter by:
+Filter escrows by:
 
 - All
 - Active
@@ -74,7 +75,7 @@ Filter by:
 
 ### 📜 Activity History
 
-Each escrow can display its onchain activity, including:
+Each escrow can display its onchain activity:
 
 - Created
 - Funded
@@ -87,10 +88,11 @@ Transaction timestamps and transaction links are displayed where available.
 
 ### 🔗 Shareable Escrow Links
 
-Each escrow can be shared through a dedicated URL:
+Each escrow can be opened using a dedicated URL:
 
 ``text
 /escrow/<escrow-id>
+
 Users can also copy the escrow ID or share the escrow directly.
 
 🔔 Notifications
@@ -101,7 +103,7 @@ The application provides transaction and escrow-status notifications based on on
 
 Arc Escrow V2 currently uses a 0.5% protocol fee.
 
-The fee is captured according to the escrow contract rules and is configured at deployment.
+The fee is configured at deployment and handled according to the smart contract rules.
 
 🔄 Escrow Flow
 Create Escrow
@@ -118,7 +120,7 @@ Create Escrow
       ▼
    Released
 
-Eligible refund or cancellation paths are handled according to the smart contract's state rules.
+Eligible cancellation and refund paths are handled according to the smart contract's state rules.
 
 🧠 How It Works
 Connect your wallet.
@@ -128,7 +130,7 @@ Enter the escrow amount.
 Add a description.
 Create the escrow.
 The required party funds the escrow.
-The seller/buyer completes the agreed transaction.
+The transaction is completed.
 The authorized party releases the funds.
 The smart contract settles the escrow according to its state.
 📜 Smart Contract
@@ -151,11 +153,11 @@ Deployment Transaction
 0x89f4cd900031062ffd2429a1c5c94d06bc39551d923befb29ef823d70d783630
 💵 Supported USDC
 
-The current deployment supports the Arc Testnet USDC token:
+The current deployment supports Arc Testnet USDC:
 
 0x3600000000000000000000000000000000000000
 
-Additional supported tokens can be configured through the contract's supported-token mechanism.
+Additional ERC-20 tokens can be configured through the contract's supported-token mechanism.
 
 🛡️ Security Model
 
@@ -177,8 +179,18 @@ The application does not require users to deposit funds into a centralized walle
 
 The project was developed and tested using Arc Studio and Foundry.
 
-The V2 contract test suite covers escrow creation, funding, completion, release, refunds, cancellation, token handling, fees, access control, and related edge cases.
+The test suite covers areas including:
 
+Escrow creation
+Escrow funding
+Transaction completion
+Fund release
+Refunds
+Cancellation
+Token handling
+Fee handling
+Access control
+Edge cases
 🧰 Tech Stack
 Solidity
 React
@@ -211,12 +223,9 @@ bun install
 Run Development Server
 bun run dev
 
-The application will start locally using the Vite development server.
+The application will start using the Vite development server.
 
 🌐 Network Configuration
-
-This project is deployed on:
-
 Network: Arc Testnet
 Chain ID: 5042002
 
@@ -249,3 +258,7 @@ Built by vijay0664kumar
 GitHub:
 
 https://github.com/vijay0664kumar
+
+📄 License
+
+MIT License
