@@ -29,6 +29,7 @@ https://soft-jalebi-0de10e.netlify.app/
 
 ``text
 0xd81fef645eb8abd641ea2ba6d7b33ad09b704be0
+
 Tech Stack
 
 Solidity • React • TypeScript • Vite • Tailwind CSS • Bun • Foundry
