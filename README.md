@@ -1,215 +1,251 @@
-# Arc Escrow
+# Arc Escrow V2
 
-A non-custodial onchain escrow application built on Arc Testnet.
+A non-custodial onchain escrow application built on **Arc Testnet**.
 
-Arc Escrow enables buyers and sellers to create, fund, complete, and release USDC payments through a smart contract without relying on a centralized intermediary.
+Arc Escrow V2 enables users to create, fund, complete, and settle escrow agreements directly through a smart contract without relying on a centralized intermediary.
 
-## Live Demo
+## 🌐 Live Demo
 
 https://soft-jalebi-0de10e.netlify.app/
 
-## Overview
+---
 
-Arc Escrow provides a simple onchain workflow for transactions between two parties.
+## ✨ Overview
 
-A buyer creates an escrow with a seller, deposits USDC into the smart contract, and releases the funds after the seller completes the work.
+Arc Escrow V2 provides a simple onchain escrow workflow for peer-to-peer transactions.
 
-The smart contract controls the escrow state and ensures that funds can only move according to the defined rules.
+The application allows users to:
 
-## Escrow Flow
+- Create escrow agreements
+- Select supported tokens
+- Define buyer and seller
+- Lock funds onchain
+- Track escrow status
+- Complete transactions
+- Release funds
+- Handle eligible refunds
+- Search and filter escrows
+- View escrow activity history
+- Share escrow links
+
+All escrow state transitions are enforced by the smart contract.
+
+---
+
+## 🚀 Features
+
+### 🔐 Non-Custodial Escrow
+
+Funds are controlled by the smart contract rather than a centralized platform.
+
+### 💰 Multi-Token Support
+
+The V2 architecture supports multiple ERC-20 tokens through a configurable supported-token system.
+
+### 📊 Escrow Dashboard
+
+Track escrow activity through dashboard statistics including:
+
+- Total escrows
+- Active escrows
+- Completed escrows
+- Released escrows
+- Refunded escrows
+- Volume tracking
+- Token-specific statistics
+
+### 🔎 Search & Filters
+
+Find escrows using:
+
+- Escrow ID
+- Wallet address
+- Description
+
+Filter by:
+
+- All
+- Active
+- Funded
+- Completed
+- Released
+- Refunded
+- Disputed
+
+### 📜 Activity History
+
+Each escrow can display its onchain activity, including:
+
+- Created
+- Funded
+- Completed
+- Released
+- Refunded
+- Cancelled
+
+Transaction timestamps and transaction links are displayed where available.
+
+### 🔗 Shareable Escrow Links
+
+Each escrow can be shared through a dedicated URL:
 
 ``text
-Buyer
-  │
-  ▼
+/escrow/<escrow-id>
+Users can also copy the escrow ID or share the escrow directly.
+
+🔔 Notifications
+
+The application provides transaction and escrow-status notifications based on onchain events.
+
+💸 Protocol Fee
+
+Arc Escrow V2 currently uses a 0.5% protocol fee.
+
+The fee is captured according to the escrow contract rules and is configured at deployment.
+
+🔄 Escrow Flow
 Create Escrow
-  │
-  ▼
-Fund Escrow
-  │
-  ▼
-Seller Completes Work
-  │
-  ▼
-Buyer Releases Funds
-  │
-  ▼
-Seller Receives USDC
-Features
-🔐 Non-custodial escrow
-💵 USDC-based payments
-👛 Wallet-based authentication
-🔄 Onchain escrow state management
-🤝 Buyer and seller roles
-✅ Seller completion confirmation
-💸 Buyer-controlled fund release
-↩️ Refund and cancellation flows
-🛡️ Reentrancy protection
-🔒 Access-controlled contract actions
-📊 Escrow status tracking
-🔎 ArcScan transaction links
-🌐 Arc Testnet deployment
-Escrow States
+      │
+      ▼
+   Created
+      │
+      ▼
+   Funded
+      │
+      ▼
+  Completed
+      │
+      ▼
+   Released
 
-The escrow follows a controlled state machine:
-Created
-   │
-   ▼
-Funded
-   │
-   ▼
-Completed
-   │
-   ▼
-Released
-Additional refund and cancellation paths are available when their conditions are satisfied.
+Eligible refund or cancellation paths are handled according to the smart contract's state rules.
 
-How It Works
-1. Create an Escrow
+🧠 How It Works
+Connect your wallet.
+Select a supported token.
+Enter the buyer and seller addresses.
+Enter the escrow amount.
+Add a description.
+Create the escrow.
+The required party funds the escrow.
+The seller/buyer completes the agreed transaction.
+The authorized party releases the funds.
+The smart contract settles the escrow according to its state.
+📜 Smart Contract
+Arc Escrow V2
 
-The buyer enters:
+Contract Address
 
-Seller wallet address
-USDC amount
-Payment description
+0xd81fef645eb8abd641ea2ba6d7b33ad09b704be0
 
-The escrow is created onchain.
+Network
 
-2. Fund the Escrow
+Arc Testnet
 
-The buyer approves USDC and funds the escrow contract.
+Chain ID
 
-The funds remain controlled by the smart contract.
+5042002
 
-3. Seller Completes
+Deployment Transaction
 
-After completing the agreed work, the seller marks the escrow as completed.
+0x89f4cd900031062ffd2429a1c5c94d06bc39551d923befb29ef823d70d783630
+💵 Supported USDC
 
-4. Release Funds
+The current deployment supports the Arc Testnet USDC token:
 
-The buyer reviews the completed escrow and releases the funds.
+0x3600000000000000000000000000000000000000
 
-The USDC is transferred to the seller.
+Additional supported tokens can be configured through the contract's supported-token mechanism.
 
-5. Refund / Emergency Protection
+🛡️ Security Model
 
-The contract also includes cancellation, refund, and emergency refund mechanisms for supported scenarios.
+Arc Escrow V2 is designed around a non-custodial smart-contract architecture.
 
-Smart Contract
+Key protections include:
 
-Contract:
-0xd7e83e4b6465b46955bc90cbbb52acd499f5c3e5
-
-Network: Arc Testnet
-
-Chain ID: 5042002
-
-Explorer:
-https://explorer.testnet.arc.io/address/0xd7e83e4b6465b46955bc90cbbb52acd499f5c3e5
-
-Smart Contract Functions
-
-Core functions include:
-
-createEscrow()
-fundEscrow()
-markCompleted()
-releaseFunds()
-cancelEscrow()
-refundEscrow()
-emergencyRefund()
-getEscrow()
-getUserEscrows()
-Security
-
-The contract was designed with security-focused protections including:
-
-Role-based access control
+Role-based escrow state transitions
+Controlled fund release
+Eligibility-based refunds
+Supported-token validation
+Fee configuration
 Escrow state validation
-Reentrancy protection
-Checks-effects-interactions pattern
-Double-release prevention
-Double-refund prevention
-Invalid participant protection
-Zero-value escrow prevention
-Custom Solidity errors
-Indexed events
-Time-based refund protection
-Emergency refund mechanism
+Onchain transaction verification
 
-No private keys, seed phrases, or wallet credentials are stored in the repository.
+The application does not require users to deposit funds into a centralized wallet.
 
-Testing
+🧪 Testing
 
-The project includes a comprehensive Foundry test suite.
+The project was developed and tested using Arc Studio and Foundry.
 
-70 / 70 tests passing
+The V2 contract test suite covers escrow creation, funding, completion, release, refunds, cancellation, token handling, fees, access control, and related edge cases.
 
-Tests cover:
-
-Escrow creation
-Funding
-Completion
-Release
-Cancellation
-Refunds
-Emergency refunds
-Access control
-Invalid state transitions
-Reentrancy protection
-Events
-Fuzz testing
-Edge cases
-Tech Stack
+🧰 Tech Stack
 Solidity
-Foundry
 React
 TypeScript
 Vite
 Tailwind CSS
 Bun
+Foundry
 Arc Testnet
-Project Structure
+ERC-20
+📁 Project Structure
 arc-escroww/
 ├── contracts/
-│   └── ArcEscrow.sol
 ├── scripts/
 ├── src/
+│   ├── contracts/
 │   ├── components/
-│   ├── hooks/
+│   ├── pages/
 │   └── ...
 ├── foundry.toml
 ├── package.json
 ├── vite.config.ts
 └── README.md
-Getting Started
-Install dependencies
+🛠️ Getting Started
+Clone
+git clone https://github.com/vijay0664kumar/arc-escroww.git
+cd arc-escroww
+Install Dependencies
 bun install
-Start development server
+Run Development Server
 bun run dev
 
-The application is designed to run against Arc Testnet.
+The application will start locally using the Vite development server.
 
-Testnet Notice
+🌐 Network Configuration
 
-This project is deployed on Arc Testnet for learning and experimentation.
+This project is deployed on:
+
+Network: Arc Testnet
+Chain ID: 5042002
+
+Make sure your wallet is connected to the correct network before interacting with the application.
+
+⚠️ Testnet Notice
+
+This project is deployed on Arc Testnet for development, experimentation, and learning.
 
 Testnet assets have no monetary value.
 
-Never commit .env files, private keys, seed phrases, or other secrets to GitHub.
+Never use real funds or expose private keys, seed phrases, API keys, or other credentials.
 
-Built With Arc Studio
+🏗️ Built With Arc Studio
 
-This project was built and tested using Arc Studio to explore smart contract development, onchain application design, and financial workflows on Arc Testnet.
+Arc Escrow V2 was built and tested using Arc Studio to explore smart contract development, onchain application architecture, and escrow workflows on Arc Testnet.
 
-Project Status
+📌 Project Status
 
-Testnet project — actively built for experimentation, learning, and Web3 development.
+Status: Testnet
 
-Author
+Arc Escrow V2 is an experimental onchain escrow application built for testing and learning.
+
+The project may evolve as additional escrow features and supported assets are explored.
+
+👤 Author
 
 Built by vijay0664kumar
 
-License
+GitHub:
 
-MIT
+https://github.com/vijay0664kumar
