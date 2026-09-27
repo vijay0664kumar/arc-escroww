@@ -255,9 +255,7 @@ The project may evolve as additional escrow features and supported assets are ex
 
 Built by vijay0664kumar
 
-GitHub:
-
-https://github.com/vijay0664kumar
+GitHub: https://github.com/vijay0664kumar
 
 📄 License
 
